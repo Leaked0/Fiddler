@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E1CDBBA-6E3D-42CA-BA0B-F0D870DDAD3D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FiddlerCore</RootNamespace>
+    <AssemblyName>FiddlerCore</AssemblyName>
+    <TargetFrameworkVersion>v2.1</TargetFrameworkVersion>
+    <TargetFrameworkIdentifier>.NETStandard</TargetFrameworkIdentifier>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCMakeCert">
+      <HintPath>..\..\BCMakeCert.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip">
+      <HintPath>..\..\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry">
+      <HintPath>..\..\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>..\..\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager">
+      <HintPath>..\..\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive">
+      <HintPath>..\..\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json">
+      <HintPath>..\..\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.NetworkConnections">
+      <HintPath>..\..\Telerik.NetworkConnections.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Analytics\AnalyticsExtensions.cs" />
+    <Compile Include="Analytics\AnalyticsFactory.cs" />
+    <Compile Include="Analytics\EmptyAnalytics.cs" />
+    <Compile Include="Analytics\IAnalytics.cs" />
+    <Compile Include="BCCertMaker\BCCertMaker.cs" />
+    <Compile Include="Common\Rules\KeyValueRules.cs" />
+    <Compile Include="Common\Rules\RuleAction.cs" />
+    <Compile Include="Common\Rules\RuleActionType.cs" />
+    <Compile Include="Common\Rules\RuleMatch.cs" />
+    <Compile Include="Common\Rules\RuleMatchCollection.cs" />
+    <Compile Include="Common\Rules\RuleMatchCondition.cs" />
+    <Compile Include="Common\Rules\RuleMatchType.cs" />
+    <Compile Include="Common\Rules\ValueRules.cs" />
+    <Compile Include="Fiddler\AutoProxy.cs" />
+    <Compile Include="Fiddler\AutoResponder.cs" />
+    <Compile Include="Fiddler\BasePipe.cs" />
+    <Compile Include="Fiddler\CacheClearEventArgs.cs" />
+    <Compile Include="Fiddler\CalculateReportHandler.cs" />
+    <Compile Include="Fiddler\CertificateValidity.cs" />
+    <Compile Include="Fiddler\CertInfo.cs" />
+    <Compile Include="Fiddler\CertMaker.cs" />
+    <Compile Include="Fiddler\ChunkedTransferState.cs" />
+    <Compile Include="Fiddler\ChunkReader.cs" />
+    <Compile Include="Fiddler\ClientChatter.cs" />
+    <Compile Include="Fiddler\ClientPipe.cs" />
+    <Compile Include="Fiddler\CodeDescription.cs" />
+    <Compile Include="Fiddler\CONFIG.cs" />
+    <Compile Include="Fiddler\ConnectionEventArgs.cs" />
+    <Compile Include="Fiddler\Connectoids.cs" />
+    <Compile Include="Fiddler\CONNECTTunnel.cs" />
+    <Compile Include="Fiddler\ContinueTransactionEventArgs.cs" />
+    <Compile Include="Fiddler\ContinueTransactionReason.cs" />
+    <Compile Include="Fiddler\COUNTERS.cs" />
+    <Compile Include="Fiddler\DefaultCertificateProvider.cs" />
+    <Compile Include="Fiddler\DNSResolver.cs" />
+    <Compile Include="Fiddler\FiddlerApplication.cs" />
+    <Compile Include="Fiddler\FiddlerCoreStartupSettings.cs" />
+    <Compile Include="Fiddler\FiddlerCoreStartupSettingsBuilder.2.cs" />
+    <Compile Include="Fiddler\FiddlerCoreStartupSettingsBuilder.cs" />
+    <Compile Include="Fiddler\FiddlerProcessHelper.cs" />
+    <Compile Include="Fiddler\FiddlerSock.cs" />
+    <Compile Include="Fiddler\FiddlerTranscoders.cs" />
+    <Compile Include="Fiddler\FiddlerUpstreamProxy.cs" />
+    <Compile Include="Fiddler\FileSignatureData.cs" />
+    <Compile Include="Fiddler\FTPGateway.cs" />
+    <Compile Include="Fiddler\GatewayType.cs" />
+    <Compile Include="Fiddler\GenericTunnel.cs" />
+    <Compile Include="Fiddler\GetPasswordDelegate.cs" />
+    <Compile Include="Fiddler\HostList.cs" />
+    <Compile Include="Fiddler\HotkeyModifiers.cs" />
+    <Compile Include="Fiddler\HTTPHeaderItem.cs" />
+    <Compile Include="Fiddler\HTTPHeaderParseWarnings.cs" />
+    <Compile Include="Fiddler\HTTPHeaders.cs" />
+    <Compile Include="Fiddler\HTTPRequestHeaders.cs" />
+    <Compile Include="Fiddler\HTTPResponseHeaders.cs" />
+    <Compile Include="Fiddler\HTTPSClientHello.cs" />
+    <Compile Include="Fiddler\HTTPSServerHello.cs" />
+    <Compile Include="Fiddler\HTTPSUtilities.cs" />
+    <Compile Include="Fiddler\ICertificateProvider.cs" />
+    <Compile Include="Fiddler\ICertificateProvider2.cs" />
+    <Compile Include="Fiddler\ICertificateProvider3.cs" />
+    <Compile Include="Fiddler\ICertificateProvider4.cs" />
+    <Compile Include="Fiddler\ICertificateProvider5.cs" />
+    <Compile Include="Fiddler\ICertificateProviderInfo.cs" />
+    <Compile Include="Fiddler\IFiddlerCoreStartupSettingsBuilder.cs" />
+    <Compile Include="Fiddler\IFiddlerPreferences.cs" />
+    <Compile Include="Fiddler\IPasswordProtectedSessionImporter.cs" />
+    <Compile Include="Fiddler\ISAZProvider.cs" />
+    <Compile Include="Fiddler\ISAZReader.cs" />
+    <Compile Include="Fiddler\ISAZReader2.cs" />
+    <Compile Include="Fiddler\ISAZWriter.cs" />
+    <Compile Include="Fiddler\ISessionExporter.cs" />
+    <Compile Include="Fiddler\ISessionImporter.cs" />
+    <Compile Include="Fiddler\ITunnel.cs" />
+    <Compile Include="Fiddler\LogEventArgs.cs" />
+    <Compile Include="Fiddler\Logger.cs" />
+    <Compile Include="Fiddler\MimeMap.cs" />
+    <Compile Include="Fiddler\MimeMappingsProvider.cs" />
+    <Compile Include="Fiddler\MimeSniffer.cs" />
+    <Compile Include="Fiddler\MockTunnel.cs" />
+    <Compile Include="Fiddler\Parser.cs" />
+    <Compile Include="Fiddler\PeriodicWorker.cs" />
+    <Compile Include="Fiddler\PipePool.cs" />
+    <Compile Include="Fiddler\PipeReadBuffer.cs" />
+    <Compile Include="Fiddler\PipeReusePolicy.cs" />
+    <Compile Include="Fiddler\PrefChangeEventArgs.cs" />
+    <Compile Include="Fiddler\PreferenceBag.cs" />
+    <Compile Include="Fiddler\ProcessFilterCategories.cs" />
+    <Compile Include="Fiddler\ProcessHelper.cs" />
+    <Compile Include="Fiddler\ProcessingStates.cs" />
+    <Compile Include="Fiddler\ProfferFormatAttribute.cs" />
+    <Compile Include="Fiddler\ProgressCallbackEventArgs.cs" />
+    <Compile Include="Fiddler\Proxy.cs" />
+    <Compile Include="Fiddler\ProxyBypassList.cs" />
+    <Compile Include="Fiddler\ProxyExecuteParams.cs" />
+    <Compile Include="Fiddler\RawReadEventArgs.cs" />
+    <Compile Include="Fiddler\RequiredVersionAttribute.cs" />
+    <Compile Include="Fiddler\ResponderGroup.cs" />
+    <Compile Include="Fiddler\ResponderRule.cs" />
+    <Compile Include="Fiddler\RetryMode.cs" />
+    <Compile Include="Fiddler\SAZWriterDelegate.cs" />
+    <Compile Include="Fiddler\ScheduledTasks.cs" />
+    <Compile Include="Fiddler\ServerChatter.cs" />
+    <Compile Include="Fiddler\ServerPipe.cs" />
+    <Compile Include="Fiddler\Session.cs" />
+    <Compile Include="Fiddler\SessionData.cs" />
+    <Compile Include="Fiddler\SessionFlags.cs" />
+    <Compile Include="Fiddler\SessionStateHandler.cs" />
+    <Compile Include="Fiddler\SessionStates.cs" />
+    <Compile Include="Fiddler\SessionTimers.cs" />
+    <Compile Include="Fiddler\SimpleEventHandler.cs" />
+    <Compile Include="Fiddler\SslProtocolsFilter.cs" />
+    <Compile Include="Fiddler\StateChangeEventArgs.cs" />
+    <Compile Include="Fiddler\StringExtensions.cs" />
+    <Compile Include="Fiddler\TranscoderTuple.cs" />
+    <Compile Include="Fiddler\URLMonInterop.cs" />
+    <Compile Include="Fiddler\Utilities.cs" />
+    <Compile Include="Fiddler\ValidateServerCertificateEventArgs.cs" />
+    <Compile Include="Fiddler\VersionStruct.cs" />
+    <Compile Include="Fiddler\WebSocket.cs" />
+    <Compile Include="Fiddler\WebSocketCloseReasons.cs" />
+    <Compile Include="Fiddler\WebSocketFrameTypes.cs" />
+    <Compile Include="Fiddler\WebSocketMessage.cs" />
+    <Compile Include="Fiddler\WebSocketMessageEventArgs.cs" />
+    <Compile Include="Fiddler\WebSocketTimers.cs" />
+    <Compile Include="Fiddler\WinINETCache.cs" />
+    <Compile Include="Fiddler\WSMFlags.cs" />
+    <Compile Include="Fiddler\XmlFileMimeMappings.cs" />
+    <Compile Include="PlatformExtensions\API\IAutoProxy.cs" />
+    <Compile Include="PlatformExtensions\API\IPlatformExtensions.cs" />
+    <Compile Include="PlatformExtensions\API\IPlatformExtensionsFactory.cs" />
+    <Compile Include="PlatformExtensions\API\IProxyHelper.cs" />
+    <Compile Include="PlatformExtensions\API\IWindowsSpecificPlatformExtensions.cs" />
+    <Compile Include="PlatformExtensions\API\IWinINetHelper.cs" />
+    <Compile Include="PlatformExtensions\API\MessageEventArgs.cs" />
+    <Compile Include="PlatformExtensions\BasePlatformExtensions.cs" />
+    <Compile Include="PlatformExtensions\EmptyPlatformExtensions.cs" />
+    <Compile Include="PlatformExtensions\EmptyProxyHelper.cs" />
+    <Compile Include="PlatformExtensions\PlatformExtensionsFactory.cs" />
+    <Compile Include="PlatformExtensions\StringConstants.cs" />
+    <Compile Include="PlatformExtensions\Unix\Linux\PlatformExtensionsForLinux.cs" />
+    <Compile Include="PlatformExtensions\Unix\Mac\PlatformExtensionsForMac.cs" />
+    <Compile Include="PlatformExtensions\Unix\PlatformExtensionsForUnix.cs" />
+    <Compile Include="PlatformExtensions\Unix\PortProcessMapperForUnix.cs" />
+    <Compile Include="PlatformExtensions\Unix\ProcessHelperForUnix.cs" />
+    <Compile Include="PlatformExtensions\Windows\PlatformExtensionsForWindows.cs" />
+    <Compile Include="PlatformExtensions\Windows\PortProcessMapperForWindows.cs" />
+    <Compile Include="PlatformExtensions\Windows\ProcessHelperForWindows.cs" />
+    <Compile Include="PlatformExtensions\Windows\ProxyHelperForWindows.cs" />
+    <Compile Include="PlatformExtensions\Windows\TimeResolutionHelperForWindows.cs" />
+    <Compile Include="PlatformExtensions\Windows\UptimeHelperForWindows.cs" />
+    <Compile Include="PlatformExtensions\Windows\UserAgentHelperForWindows.cs" />
+    <Compile Include="PlatformExtensions\Windows\Win32Helper.cs" />
+    <Compile Include="PlatformExtensions\Windows\WinHttpAutoProxy.cs" />
+    <Compile Include="PlatformExtensions\Windows\WinINetHelper.cs" />
+    <Compile Include="PlatformExtensions\Windows\XpressCompressionHelperForWindows.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SazProvider\SazProvider.cs" />
+    <Compile Include="SazProvider\SazReader.cs" />
+    <Compile Include="SazProvider\SazWriter.cs" />
+    <Compile Include="Utilities\DotNetVersionRecognizer.cs" />
+    <Compile Include="Utilities\HexViewHelper.cs" />
+    <Compile Include="Utilities\PathsHelper.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\DoNotCaptureAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\DoNotCaptureVariablesAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\DoNotEncodeStringsAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\DoNotMoveAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\DoNotMoveMethodsAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\DoNotObfuscateAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\DoNotObfuscateControlFlowAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\DoNotObfuscateTypeAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\DoNotPruneAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\DoNotPruneTypeAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\DoNotSealTypeAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\EncodeStringsAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\ExcludeFromMemberRefsProxyAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\ObfuscateControlFlowAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\ObfuscateNamespaceToAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\ObfuscateToAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\ReportExceptionAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\ReportUsageAttribute.cs" />
+    <Compile Include="Utilities\SmartAssembly\Attributes\StayPublicAttribute.cs" />
+    <Compile Include="Utilities\StringHelper.cs" />
+    <Compile Include="Utilities\Utilities.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
